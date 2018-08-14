@@ -12,9 +12,35 @@ import { createStackNavigator } from 'react-navigation';
 import Login from './app/components/Login';
 import Dashboard from './app/components/Dashboard';
 import Register from './app/components/Register';
+import Sidebar from './app/components/Sidebar'
+
+import { DrawerNavigator } from 'react-navigation'
 
 
+class App extends Component{
 
+  static navigationOptions = {
+      header: null
+  }
+
+  render() {
+    return (
+<AppStack />
+    );
+  }
+}
+
+
+const AppStack = DrawerNavigator({
+  login: { screen: Login },
+  dashboard: { screen: Dashboard}
+}, {
+  // contentComponent: ({navigation}) => <Sidebar />
+  contentComponent: Sidebar
+  
+})
+
+// export default App
 
 
 
@@ -22,6 +48,7 @@ import Register from './app/components/Register';
 
 
 export default createStackNavigator({
+  app: App,    
   login: Login,  
   register: Register,
   dashboard: Dashboard

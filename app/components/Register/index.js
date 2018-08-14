@@ -11,25 +11,6 @@ class Register extends Component {
     checkingRegister() {
         const { username, email_id, password } = this.state
         console.log(username, email_id, password)
-        // if (username == 'aaa' && password == 'aaa' && email_id == 'aaa') {
-        // fetch('http://192.168.2.128:5000/abc/register', { method: 'POST', body: `username=${username}&email_id=${email_id}&password=${password}`})
-        
-        
-
-
-
-
-        
-//         fetch('http://192.168.2.128:5000/abc/register', { method: 'POST', body: JSON.stringify({username, email_id, password})})
-// .then(res => {
-// return res.text()
-// })
-// .then(res => console.warn(res))
-        
-        
-        
-        
-        
 
 
 fetch("http://192.168.2.128:5000/abc/register", {
@@ -44,18 +25,21 @@ fetch("http://192.168.2.128:5000/abc/register", {
         password: password,
     })
 })
-
     .then((response) => response.json())
     .then((responseData) => {
-        
         console.log(
             "POST Response",
             "Response Body -> " + JSON.stringify(responseData)
         )
-
-        this.props.navigation.navigate('dashboard')
-
-
+if(responseData.status === true) {
+    // if(responseData.data.admin)
+    this.props.navigation.navigate('dashboard')
+} else {
+    console.log('Errorrrrrrr')
+    Alert.alert('Error', 'Enter All the details', [{
+        text: 'Okay'
+    }])
+}
     })
     .done();
 }

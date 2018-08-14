@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TextInput} from 'react-native';
+import {View, Text, TextInput, Button} from 'react-native';
 // import { createStackNavigator } from 'react-navigation';
 
 
@@ -11,9 +11,16 @@ class Dashboard extends Component{
     }
 
     render() {
+  
+      const {params} = this.props.navigation.state
+      console.log("paramsparams", params)
+
+
+
       return (
         <View>
 <Text>Dashboard</Text>
+<Button title='Create Event'/>
 
 
 
@@ -22,5 +29,4 @@ class Dashboard extends Component{
     }
   }
   
-
   export default Dashboard

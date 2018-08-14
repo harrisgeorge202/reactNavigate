@@ -13,21 +13,46 @@ class Login extends Component {
     checkingLogin() {
         const { username, password } = this.state
         console.log(username, password)
-        if (username == 'admin' && password == 'admin') {
-            this.props.navigation.navigate('dashboard')
+
+        fetch("http://192.168.2.128:5000/abc/login", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password,
+            })
+        })
+            .then((response) => response.json())
+            .then((responseData) => {
+                console.log(
+                    "POST Response",
+                    "Response Body -> " + JSON.stringify(responseData)
+                )
+        if(responseData.status === true) {
+            // if(responseData.data.admin)
+
+
+
+            this.props.navigation.navigate('dashboard', { user: responseData })
         } else {
-            Alert.alert('Error', 'Invalid', [{
+            console.log('Errorrrrrrr')
+            Alert.alert('Error', 'Username or password not valid', [{
                 text: 'Okay'
             }])
         }
-    }
+            })
+            .done();
+        }
+        
 
 
     register() {
         this.props.navigation.navigate('register')
 
     }
-
 
     render() {
         const { heading, input, parent } = styles;
@@ -39,11 +64,7 @@ class Login extends Component {
                 } />
                 <TextInput style={input} placeholder='Password' secureTextEntry={true} onChangeText={text => this.setState({ password: text })} />
                 <Button title='Login' onPress={_ => this.checkingLogin()} />
-
-
                 <Button title='Register' onPress={reg => this.register()} />
-
-
             </View>
         );
     }
