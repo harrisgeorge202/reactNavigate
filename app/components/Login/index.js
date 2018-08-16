@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, Button, Alert } from 'react-native';
-// import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import Register from './../Register';
 import styles from './styles'
 
@@ -50,7 +50,11 @@ class Login extends Component {
 
 
     register() {
+        console.log("Registerrrrrrrrrrrrrrrrrrr")
         this.props.navigation.navigate('register')
+        console.log("wwwwwwwwwwwwwwwwwwwwerrrrrrrrrrrrrrrrrrr")
+        
+        // this.props.navigation.navigate('register')
 
     }
 

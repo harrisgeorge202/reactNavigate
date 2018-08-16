@@ -10,6 +10,22 @@ class Dashboard extends Component{
         header: null
     }
 
+
+    createEvent() {
+      console.log("createEventrrrrrrrrrrrr")
+      const {params} = this.props.navigation.state
+      console.log("2121211121212", params)
+
+      
+      this.props.navigation.navigate('createEvent', { user: params })
+      console.log("wwwwwwwwwwwwwwwwwwwwerrrrrrrrrrrrrrrrrrr")
+      
+      // this.props.navigation.navigate('register')
+
+  }
+
+
+
     render() {
   
       const {params} = this.props.navigation.state
@@ -20,7 +36,7 @@ class Dashboard extends Component{
       return (
         <View>
 <Text>Dashboard</Text>
-<Button title='Create Event'/>
+<Button title='Create Event'  onPress={reg => this.createEvent()} />
 
 
 

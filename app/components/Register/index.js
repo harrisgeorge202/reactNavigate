@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, Button, Alert } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
+
 import styles from './styles'
 
 
@@ -44,23 +46,6 @@ if(responseData.status === true) {
     .done();
 }
 
-
-
-
-
-
-
-
-        
-        
-        
-        
-            // } else {
-        //     Alert.alert('Error', 'Invalid', [{
-        //         text: 'Okay'
-        //     }])
-        // }
-    // }
 
     render() {
         const { heading, input, parent } = styles;

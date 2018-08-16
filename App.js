@@ -12,7 +12,9 @@ import { createStackNavigator } from 'react-navigation';
 import Login from './app/components/Login';
 import Dashboard from './app/components/Dashboard';
 import Register from './app/components/Register';
-import Sidebar from './app/components/Sidebar'
+import Sidebar from './app/components/Sidebar';
+import CreateEvent from './app/components/CreateEvent/createEvent';
+
 
 import { DrawerNavigator } from 'react-navigation'
 
@@ -33,7 +35,10 @@ class App extends Component{
 
 const AppStack = DrawerNavigator({
   login: { screen: Login },
-  dashboard: { screen: Dashboard}
+  dashboard: { screen: Dashboard},
+  register: { screen: Register},
+  createEvent: {screen: CreateEvent}
+  
 }, {
   // contentComponent: ({navigation}) => <Sidebar />
   contentComponent: Sidebar
@@ -50,6 +55,7 @@ const AppStack = DrawerNavigator({
 export default createStackNavigator({
   app: App,    
   login: Login,  
+  dashboard: Dashboard,
   register: Register,
-  dashboard: Dashboard
+  
 })
