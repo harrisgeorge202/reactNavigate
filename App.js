@@ -14,6 +14,7 @@ import Dashboard from './app/components/Dashboard';
 import Register from './app/components/Register';
 import Sidebar from './app/components/Sidebar';
 import CreateEvent from './app/components/CreateEvent/createEvent';
+import EditEvent from './app/components/EditEvent/editEvent';
 
 
 import { DrawerNavigator } from 'react-navigation'
@@ -37,7 +38,8 @@ const AppStack = DrawerNavigator({
   login: { screen: Login },
   dashboard: { screen: Dashboard},
   register: { screen: Register},
-  createEvent: {screen: CreateEvent}
+  createEvent: {screen: CreateEvent},
+  editevent: {screen: EditEvent}
   
 }, {
   // contentComponent: ({navigation}) => <Sidebar />

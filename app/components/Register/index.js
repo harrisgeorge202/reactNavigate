@@ -15,36 +15,36 @@ class Register extends Component {
         console.log(username, email_id, password)
 
 
-fetch("http://192.168.2.128:5000/abc/register", {
-    method: 'POST',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        username: username,
-        email_id: email_id,
-        password: password,
-    })
-})
-    .then((response) => response.json())
-    .then((responseData) => {
-        console.log(
-            "POST Response",
-            "Response Body -> " + JSON.stringify(responseData)
-        )
-if(responseData.status === true) {
-    // if(responseData.data.admin)
-    this.props.navigation.navigate('dashboard')
-} else {
-    console.log('Errorrrrrrr')
-    Alert.alert('Error', 'Enter All the details', [{
-        text: 'Okay'
-    }])
-}
-    })
-    .done();
-}
+        fetch("http://192.168.2.128:5000/abc/register", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username,
+                email_id: email_id,
+                password: password,
+            })
+        })
+            .then((response) => response.json())
+            .then((responseData) => {
+                console.log(
+                    "POST Response",
+                    "Response Body -> " + JSON.stringify(responseData)
+                )
+                if (responseData.status === true) {
+                    // if(responseData.data.admin)
+                    this.props.navigation.navigate('dashboard')
+                } else {
+                    console.log('Errorrrrrrr')
+                    Alert.alert('Error', 'Enter All the details', [{
+                        text: 'Okay'
+                    }])
+                }
+            })
+            .done();
+    }
 
 
     render() {
